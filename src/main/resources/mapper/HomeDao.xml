@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.HomeDao">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <insert id="insertData"  parameterType="dao.HomeDao">
+        INSERT INTO homesafe (smoke,human,temperature,pm25,update_date)
+        VALUE(#{smoke},#{human},#{temperature},#{pm25},#{updateDate})
+    </insert>
+
+    <select id="getList"   resultType="entity.HomeEntity">
+--         SELECT * from smart_windows
+       SELECT * from homesafe order by id desc LIMIT 0,5
+    </select>
+</mapper>
